@@ -20,7 +20,7 @@ library.add(faCommentDots);
 const Testimonials = () => {
   const theme = useTheme();
   const [testimonials, setTestimonials] = useState([]);
-  
+
   const fetchTestimonials = () => {
     axios.get("http://127.0.0.1:8000/testimonials", {
       headers: {
@@ -32,11 +32,11 @@ const Testimonials = () => {
     })
     .catch(error => console.log(error));
   };
-  
+
   useEffect(() => {
     fetchTestimonials();
   }, []);
-  
+
   return (
     <div id="testimonials">
       <Box
@@ -66,7 +66,7 @@ const Testimonials = () => {
               marginTop={4}
               marginBottom={6}
             >
-              Check what clients have said about my work
+              Check what employers have said about me.
             </Typography>
           </Box>
           <Grid container spacing={4}>
@@ -96,18 +96,18 @@ const Testimonials = () => {
                     data-aos-duration={600}
                     variant="outlined"
                   >
-                    <Box 
-                      display="flex" 
+                    <Box
+                      display="flex"
                       flexDirection="column"
                     >
                       <Box marginBottom={2}>
-                        <FontAwesomeIcon 
-                          icon={faCommentDots} 
-                          style={{ 
+                        <FontAwesomeIcon
+                          icon={faCommentDots}
+                          style={{
                             color: theme.palette.primary.main,
-                            height: 45, 
+                            height: 45,
                             width: 45
-                          }} 
+                          }}
                         />
                       </Box>
                       <Typography

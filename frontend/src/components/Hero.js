@@ -18,9 +18,9 @@ const Hero = () => {
     theme.breakpoints.up("md"),
     { defaultMatches: true }
   );
-  
+
   const [hero, setHero] = useState([]);
-  
+
   const fetchHero = () => {
     axios.get("http://127.0.0.1:8000/hero", {
       headers: {
@@ -32,7 +32,7 @@ const Hero = () => {
     })
     .catch(error => console.log(error));
   };
-  
+
   useEffect(() => {
     fetchHero();
   }, []);
@@ -45,10 +45,10 @@ const Hero = () => {
       easing: 'ease-in-out',
     });
   }, []);
-  
+
   return (
     <div id="home">
-      <Box 
+      <Box
         maxWidth={{ sm: 720, md: 1236 }}
         width={1}
         margin="0 auto"
@@ -57,9 +57,9 @@ const Hero = () => {
       >
         {hero.slice(0, 1).map((item, i) => (
           <Grid container key={i} spacing={4}>
-            <Grid 
-              item 
-              xs={12} 
+            <Grid
+              item
+              xs={12}
               md={6}
               sx={{ order: { xs: 2, md: 1 } }}
             >
@@ -98,12 +98,12 @@ const Hero = () => {
                 <HeroButtons />
               </Box>
             </Grid>
-            <Grid 
-              item 
-              container 
-              alignItems="center" 
-              justifyContent="center" 
-              xs={12} 
+            <Grid
+              item
+              container
+              alignItems="center"
+              justifyContent="center"
+              xs={12}
               md={6}
               sx={{ order: { xs: 1, md: 2 } }}
             >
@@ -119,7 +119,7 @@ const Hero = () => {
                   }
                 }}
               >
-                <Box 
+                <Box
                   component={LazyLoadImage}
                   src={item.image}
                   alt="Background Image"
@@ -136,7 +136,7 @@ const Hero = () => {
           ))}
         <Divider sx={{ mt: 6}} />
       </Box>
-    </div>     
+    </div>
   );
 };
 

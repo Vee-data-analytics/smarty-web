@@ -16,9 +16,9 @@ import Map from "./Map";
 
 const Contact = () => {
   const theme = useTheme();
-  
+
   const [contact, setContact] = useState([]);
-  
+
   const fetchContact = () => {
     axios.get("http://127.0.0.1:8000/contact", {
       headers: {
@@ -30,14 +30,14 @@ const Contact = () => {
     })
     .catch(error => console.log(error));
   };
-  
+
   useEffect(() => {
     fetchContact();
   }, []);
-    
+
   return (
     <div id="contact">
-      <Box 
+      <Box
         position="relative"
         marginBottom={15}
       >
@@ -68,16 +68,16 @@ const Contact = () => {
               marginTop={4}
               marginBottom={6}
             >
-              Do you need a full-stack web developer? I would love to hear from you.
+              Do you need an Industrial Physist with a  data science background ? I would love to hear from you.
             </Typography>
           </Box>
           {contact.slice(0, 1).map((item, i) => (
             <Grid container spacing={3} key={i}>
               <Grid item md={4} xs={12}>
                 <Box marginTop={3} marginBottom={2} justifyContent="center">
-                  <Typography 
-                    variant="h4" 
-                    sx={{ fontWeight: 600 }} 
+                  <Typography
+                    variant="h4"
+                    sx={{ fontWeight: 600 }}
                     gutterBottom
                     alignItems="center"
                   >
@@ -112,7 +112,7 @@ const Contact = () => {
                         <PhoneIcon fontSize="small" />
                       </Box>
                     </Box>
-                    <ListItemText 
+                    <ListItemText
                       primary="Phone"
                       secondary={item.phone}
                     />
@@ -140,7 +140,7 @@ const Contact = () => {
                         <EmailIcon fontSize="small" />
                       </Box>
                     </Box>
-                    <ListItemText 
+                    <ListItemText
                       primary="Email"
                       secondary={item.email}
                     />
@@ -167,17 +167,17 @@ const Contact = () => {
                         <LocationIcon fontSize="small" />
                       </Box>
                     </Box>
-                    <ListItemText 
+                    <ListItemText
                       primary="Location"
-                      secondary={item.address} 
+                      secondary={item.address}
                     />
                   </Box>
                 </Box>
               </Grid>
               <Grid item md={8} xs={12}>
-                <Map 
-                  coordinates={[item.latitude, item.longitude]} 
-                  zoom={13} 
+                <Map
+                  coordinates={[item.latitude, item.longitude]}
+                  zoom={13}
                 />
               </Grid>
             </Grid>

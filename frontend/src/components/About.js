@@ -12,7 +12,7 @@ import { useTheme } from "@mui/material/styles";
 const About = () => {
   const theme = useTheme();
   const [about, setAbout] = useState([]);
-  
+
   const fetchAbout = () => {
     axios.get("http://127.0.0.1:8000/about", {
       headers: {
@@ -24,11 +24,11 @@ const About = () => {
     })
     .catch(error => console.log(error));
   };
-  
+
   useEffect(() => {
     fetchAbout();
   }, []);
-  
+
   return (
     <div id="about">
       <Box
@@ -58,7 +58,7 @@ const About = () => {
               marginTop={4}
               marginBottom={6}
             >
-              I am a web developer who builds elegant, fast, and scalable web applications
+              I am an Industrial Physics Graduate who continues to build her skill set, learning new  Technologies and applying them to real world problems.
             </Typography>
           </Box>
           <Grid container spacing={4}>
@@ -88,8 +88,8 @@ const About = () => {
                     data-aos-duration={600}
                     variant="outlined"
                   >
-                    <Box 
-                      display="flex" 
+                    <Box
+                      display="flex"
                       flexDirection="column"
                     >
                       <Box

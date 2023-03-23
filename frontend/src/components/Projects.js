@@ -13,9 +13,9 @@ import { useTheme } from "@mui/material/styles";
 
 const Projects = () => {
   const theme = useTheme();
-  
+
   const [projects, setProjects] = useState([]);
-  
+
   const fetchProjects = () => {
     axios.get("http://127.0.0.1:8000/projects", {
       headers: {
@@ -27,11 +27,11 @@ const Projects = () => {
     })
     .catch(err => console.log(err));
   };
-  
+
   useEffect(() => {
     fetchProjects();
   }, []);
-  
+
   return (
     <div id="projects">
       <Box
@@ -50,7 +50,7 @@ const Projects = () => {
             data-aos="fade-up"
             gutterBottom
           >
-            My Projects
+            My Work Experience
           </Typography>
           <Typography
             variant="h5"
@@ -60,7 +60,7 @@ const Projects = () => {
             marginTop={4}
             marginBottom={6}
           >
-            View some of my latest projects
+            View my work experience, lessons and contributions.
           </Typography>
         </Box>
         <Grid container spacing={4}>
@@ -150,8 +150,8 @@ const Projects = () => {
                           clickable
                           size="small"
                           color="primary"
-                          sx={{ 
-                            marginBottom: 1, 
+                          sx={{
+                            marginBottom: 1,
                             marginRight: 1,
                             "&:hover": {
                               backgroundColor: "transparent",
@@ -163,36 +163,11 @@ const Projects = () => {
                       ))}
                     </Box>
                     <Box marginTop={2} display="flex" justifyContent="flex-end">
-                      <Button
-                        component="a"
-                        href={item.link}
-                        target="_blank"
-                        endIcon={
-                          <Box
-                            component={"svg"}
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                            width={24}
-                            height={24}
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="M17 8l4 4m0 0l-4 4m4-4H3"
-                            />
-                          </Box>
-                        }
-                      >
-                        Source Code
-                      </Button>
                     </Box>
                   </CardContent>
                 </Box>
               </Box>
-            </Grid>            
+            </Grid>
           ))}
         </Grid>
       </Box>
@@ -200,5 +175,5 @@ const Projects = () => {
     </div>
   );
 };
-  
+
 export default Projects;

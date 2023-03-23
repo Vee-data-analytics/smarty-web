@@ -9,12 +9,12 @@ import theme from "./theme/theme";
 import Layout from "./layout/Layout";
 import Home from "./pages/Home";
 
-const App = () => {  
+const App = () => {
   return (
     <HelmetProvider>
-      <Helmet 
-        titleTemplate="%s | Monde's Programming Portfoilo"
-        defaultTitle="Monde's Programming Portfoilo"
+      <Helmet
+        titleTemplate="%s | Lethabo's Professional Portfoilo"
+        defaultTitle=" Lethabo's Professional Portfoilo"
       />
       <ThemeProvider theme={theme}>
         <CssBaseline />

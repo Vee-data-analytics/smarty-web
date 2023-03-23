@@ -28,7 +28,7 @@ import CustomButton from "../components/CustomButton";
 
 const Sidebar = ({ open, onClose }) => {
   const theme = useTheme();
-  
+
   return (
     <React.Fragment>
       <Drawer
@@ -47,16 +47,16 @@ const Sidebar = ({ open, onClose }) => {
           <Box width={1} paddingX={2} paddingY={1}>
             <Link to="/" style={{ textDecoration: "none" }}>
               <IconButton size="large" disabled>
-                <FontAwesomeIcon 
-                  icon={faLaptopCode} 
-                  style={{ 
+                <FontAwesomeIcon
+                  icon={faLaptopCode}
+                  style={{
                     color: theme.palette.primary.main,
-                    height: 45, 
-                    width: 45 
-                  }} 
+                    height: 45,
+                    width: 45
+                  }}
                 />
-                <Typography 
-                  variant="h3" 
+                <Typography
+                  variant="h3"
                   color={theme.palette.primary.main}
                   fontWeight={700}
                   textDecoration="none"
@@ -69,24 +69,24 @@ const Sidebar = ({ open, onClose }) => {
             </Link>
           </Box>
           <Box paddingX={2} paddingY={2}>
-            <CustomButton 
+            <CustomButton
               href="#home"
               text="Home"
             />
             <Box paddingY={1}>
-              <CustomButton 
+              <CustomButton
                 href="#about"
                 text="About"
               />
             </Box>
             <Box paddingY={1}>
-              <CustomButton 
+              <CustomButton
                 href="#projects"
                 text="Projects"
               />
             </Box>
             <Box paddingY={1}>
-              <CustomButton 
+              <CustomButton
                 href="#technologies"
                 text="Technologies"
               />
@@ -98,38 +98,38 @@ const Sidebar = ({ open, onClose }) => {
               />
             </Box>
             <Box paddingY={1}>
-              <CustomButton 
+              <CustomButton
                 href="#contact"
                 text="Contact"
               />
             </Box>
             <Box>
               <Stack direction="row" spacing={1}>
-                <IconButton 
-                  aria-label="YouTube" 
+                <IconButton
+                  aria-label="YouTube"
                   href="#"
                   target="_blank"
-                  sx={{ 
+                  sx={{
                     color: theme.palette.primary.main,
                   }}
                 >
                   <YouTubeIcon fontSize="large" />
                 </IconButton>
-                <IconButton 
-                  aria-label="LinkedIn" 
+                <IconButton
+                  aria-label="LinkedIn"
                   href="#"
                   target="_blank"
-                  sx={{ 
+                  sx={{
                     color: theme.palette.primary.main,
                   }}
                 >
                   <LinkedInIcon fontSize="large" />
                 </IconButton>
-                <IconButton 
-                  aria-label="Instagram" 
+                <IconButton
+                  aria-label="Instagram"
                   href="#"
                   target="_blank"
-                  sx={{ 
+                  sx={{
                     color: theme.palette.primary.main,
                   }}
                 >

@@ -28,7 +28,7 @@ const Header = ({ onSidebarOpen }) => {
     disableHysteresis: true,
     threshold: 38,
   });
-  
+
   return (
     <React.Fragment>
       <AppBar
@@ -41,30 +41,30 @@ const Header = ({ onSidebarOpen }) => {
         }}
       >
         <Toolbar sx={{ minHeight: 70 }}>
-          <IconButton 
+          <IconButton
             onClick={() => onSidebarOpen()}
             aria-label="Menu"
-            sx={{ 
+            sx={{
               color: theme.palette.primary.main,
-              display: { xs: "block", md: "none" } 
+              display: { xs: "block", md: "none" }
             }}
           >
             <MenuIcon fontSize="medium" />
           </IconButton>
           <Link href="/" style={{ textDecoration: "none" }}>
             <IconButton size="large" disabled>
-              <FontAwesomeIcon 
-                icon={faLaptopCode} 
-                style={{ 
+              <FontAwesomeIcon
+                icon={faLaptopCode}
+                style={{
                   color: theme.palette.primary.main,
-                  height: 45, 
+                  height: 45,
                   width: 45
-                }} 
+                }}
               />
-              <Typography 
-                variant="h3" 
-                component="div" 
-                sx={{ 
+              <Typography
+                variant="h3"
+                component="div"
+                sx={{
                   flexGrow: 1,
                   marginLeft: "10px",
                   color: theme.palette.primary.main,
@@ -73,30 +73,30 @@ const Header = ({ onSidebarOpen }) => {
                   display: { md: "inline", xs: "none" }
                 }}
               >
-                Monde's Developer Diaries     
+                Lethabo's portfolio
               </Typography>
             </IconButton>
           </Link>
           <Box sx={{ flexGrow: 1 }} />
-          <Box 
-            sx={{ 
+          <Box
+            sx={{
               alignItems: "center",
               display: { md: "flex", xs: "none" } 
             }}
           >
-            <CustomButton 
+            <CustomButton
               href="#home"
               text="Home"
             />
-            <CustomButton 
+            <CustomButton
               href="#about"
               text="About"
             />
-            <CustomButton 
+            <CustomButton
               href="#projects"
-              text="Projects"
+              text="Experience"
             />
-            <CustomButton 
+            <CustomButton
               href="#technologies"
               text="Technologies"
             />
@@ -104,35 +104,35 @@ const Header = ({ onSidebarOpen }) => {
               href="#testimonials"
               text="Testimonials"
             />
-            <CustomButton 
+            <CustomButton
               href="#contact"
               text="Contact"
             />
           </Box>
           <Divider
             orientation="vertical"
-            sx={{ 
-              height: 32, 
+            sx={{
+              height: 32,
               mx: 2,
-              display: { lg: "flex", md: "none", xs: "none" } 
-            }} 
+              display: { lg: "flex", md: "none", xs: "none" }
+            }}
           />
           <Box sx={{ display: { lg: "flex", md: "none", xs: "none" } }}>
-            <IconButton 
-              aria-label="YouTube" 
-              href="https://www.linkedin.com/in/monde-ngwenya-b47b72172/"
+            <IconButton
+              aria-label="YouTube"
+              href="https://www.linkedin.com/in/lethabo-aphahe-025927210/"
               target="_blank"
-              sx={{ 
+              sx={{
                 color: theme.palette.primary.main,
               }}
             >
               <LinkedInIcon fontSize="large" />
             </IconButton>
-            <IconButton 
-              aria-label="Instagram" 
+            <IconButton
+              aria-label="Instagram"
               href="#"
               target="_blank"
-              sx={{ 
+              sx={{
                 color: theme.palette.primary.main,
               }}
             >

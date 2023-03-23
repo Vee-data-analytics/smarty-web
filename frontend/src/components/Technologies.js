@@ -11,9 +11,9 @@ import { useTheme } from "@mui/material/styles";
 
 const Technologies = () => {
   const theme = useTheme();
-  
+
   const [technologies, setTechnologies] = useState([]);
-  
+
   const fetchTechnologies = () => {
     axios.get("http://127.0.0.1:8000/technologies", {
       headers: {
@@ -25,11 +25,11 @@ const Technologies = () => {
     })
     .catch(err => console.log(err));
   };
-  
+
   useEffect(() => {
     fetchTechnologies();
   }, []);
-  
+
   return (
     <div id="technologies">
       <Box
@@ -49,7 +49,7 @@ const Technologies = () => {
               data-aos="fade-up"
               gutterBottom
             >
-              Technologies
+            My Toolkit
             </Typography>
             <Typography
               variant="h4"
@@ -59,7 +59,7 @@ const Technologies = () => {
               marginTop={4}
               marginBottom={6}
             >
-              Technologies I use to build web applications
+              Technologies I use for my workflow.
             </Typography>
           </Box>
           <Grid container spacing={2}>
@@ -103,7 +103,7 @@ const Technologies = () => {
                         image={item.icon}
                       />
                     </Box>
-                    <Typography 
+                    <Typography
                       align="center"
                       color={theme.palette.text.primary}
                       fontWeight="bold"
