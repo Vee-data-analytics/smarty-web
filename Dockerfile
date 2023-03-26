@@ -1,19 +1,53 @@
-FROM node:18-alpine AS builder
+# Base image
+FROM node:14-alpine AS builder
+
+# Set working directory
 WORKDIR /frontend
-COPY /frontend/package.json .
-COPY frontend/package-lock.json .
+
+# Copy package.json and package-lock.json
+COPY /frontend/package*.json ./
+
+# Install dependencies
 RUN npm install
+
+# Copy all files
 COPY . .
+
+# Build the React app
 RUN npm run build
 
-FROM python:3.8-slim-buster
+# Production image
+FROM python:3.9-slim-buster AS production
+
+# Set environment variables
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
+
+# Set working directory
 WORKDIR /app
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends \
-    libpq-dev \
-    && rm -rf /var/lib/apt/lists/*
-COPY /backend/requirements.txt .
+
+# Install dependencies
+RUN apt-get update \
+    && apt-get -y install netcat gcc \
+    && pip install --upgrade pip \
+
+# Copy requirements.txt
+COPY requirements.txt .
+
+# Install Python dependencies
 RUN pip install -r requirements.txt
+
+# Copy React build files
+COPY --from=builder /frontend/build /frontend/builder/build
+
+# Copy Django app code
 COPY . .
-COPY --from=builder /frontend/build /frontend/build
-CMD python manage.py migrate && python manage.py runserver 0.0.0.0:5000
+
+# Collect static files
+RUN python manage.py collectstatic --no-input
+
+# Expose port 8000
+EXPOSE 8000
+
+# Start Gunicorn
+CMD gunicorn backend.wsgi:application --bind 0.0.0.0:8000
