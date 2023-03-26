@@ -1,19 +1,30 @@
-FROM node:18-alpine AS builder
-WORKDIR /frontend
-COPY /frontend/package.json .
-COPY /frontend/package-lock.json .
+# Build frontend
+FROM node:14-alpine as frontend
+
+WORKDIR /app/frontend
+
+COPY frontend/package*.json ./
+
 RUN npm install
-COPY . .
-CMD npm install && npm audit fix && npm run start
 
+COPY frontend/ .
 
-FROM python:3.9-slim-buster
-WORKDIR /backend
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends \
-    libpq-dev \
-    && rm -rf /var/lib/apt/lists/*
-COPY backend/requirements.txt .
-RUN pip install -r requirements.txt
-COPY . .
-CMD python manage.py migrate && python manage.py runserver 0.0.0.0:8000
+RUN npm run build
+
+# Build backend
+FROM python:3.9-alpine as backend
+
+WORKDIR /app/backend
+
+COPY backend/requirements.txt ./
+
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY backend/ .
+
+# Copy frontend build to backend static files directory
+COPY --from=frontend /app/frontend/build /app/backend/staticfiles
+
+EXPOSE 8000
+
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
