@@ -24,7 +24,7 @@ ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
 # Set working directory
-WORKDIR /app
+WORKDIR /backend
 
 # Install dependencies
 RUN apt-get update \
@@ -32,7 +32,7 @@ RUN apt-get update \
     && pip install --upgrade pip \
 
 # Copy requirements.txt
-COPY requirements.txt .
+COPY /backend/requirements.txt .
 
 # Install Python dependencies
 RUN pip install -r requirements.txt
