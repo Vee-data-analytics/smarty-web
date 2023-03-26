@@ -5,7 +5,7 @@ COPY /frontend/package-lock.json .
 RUN npm install
 COPY . .
 RUN npm run build
-CMD npm install && npm run start
+CMD npm install && npm audit fix && npm run start
 
 FROM python:3.9-slim-buster
 WORKDIR /backend
