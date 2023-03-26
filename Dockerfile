@@ -16,5 +16,4 @@ RUN apt-get update && \
 COPY backend/requirements.txt .
 RUN pip install -r requirements.txt
 COPY . .
-COPY --from=builder /frontend/build /frontend/build
-CMD python manage.py migrate && python manage.py runserver 0.0.0.0:5000
+CMD python manage.py migrate && python manage.py runserver 0.0.0.0:8000
