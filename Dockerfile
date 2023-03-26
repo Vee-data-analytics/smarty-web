@@ -1,7 +1,7 @@
 FROM node:14-alpine AS builder
-WORKDIR /app
-COPY package.json .
-COPY package-lock.json .
+WORKDIR /frontend
+COPY /frontend/package.json .
+COPY frontend/package-lock.json .
 RUN npm install
 COPY . .
 RUN npm run build
@@ -12,8 +12,8 @@ RUN apt-get update && \
     apt-get install -y --no-install-recommends \
     libpq-dev \
     && rm -rf /var/lib/apt/lists/*
-COPY requirements.txt .
+COPY /backend/requirements.txt .
 RUN pip install -r requirements.txt
 COPY . .
-COPY --from=builder /app/build /app/build
+COPY --from=builder /frontend/build /frontend/build
 CMD python manage.py migrate && python manage.py runserver 0.0.0.0:5000
